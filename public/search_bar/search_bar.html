@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	
+<head>
+	<!-- linking the stylesheet(CSS) -->
+	<link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+          <link rel="stylesheet" type="text/css" href="./search_bar.css">
+</head>
+
+<header>
+	<h1>Pawpedia <i class="fa fa-paw"></i></h1>
+	<h3>Find information on a dog breed today!</h3>
+</header>
+
+<body style="font-family:'Tajawal', sans-serif";>
+	<div class="topnav">
+		<a href="../index.html">Home</a>
+		<a href="../dog_breeds.html">Dog Breeds</a>
+		<a href="../dog_names.html">Dog Names</a>
+		<a href="../personality_quiz/personality_quiz.html">Personality Quiz</a>
+		<a href="./search_bar.html">Search</a>
+	  </div>
+
+	<br></br>
+	<!-- input tag -->
+	<input id="searchbar" onkeyup="search_dog_breed()" type="text"
+		name="search" placeholder="Enter Dog Breed..">
+	
+	<br></br>
+	
+	<img src="../images/welcome-pic3.jpg" width="300" height="300" class="center">
+	
+	<!-- ordered list -->
+	<ol id='list' style="font-family:'Tajawal', sans-serif;">
+		<li class="dog_breeds"><a href="../dog_breeds/husky.html">Siberian Husky</a></li> 
+		<li class="dog_breeds"><a href="../dog_breeds/cockapoo.html">Cockapoo</a></li> 
+		<li class="dog_breeds"><a href="../dog_breeds/goldenr.html">Golden Retriever</a></li> 
+		<li class="dog_breeds"><a href="../dog_breeds/beagle.html">Beagle</a></li> 
+		<li class="dog_breeds"><a href="../dog_breeds/german_shepherd.html">German Shepherd</a></li> 
+		<li class="dog_breeds"><a href="../dog_breeds/rottweiler.html">Rottweiler</a></li> 
+		<li class="dog_breeds"><a href="../dog_breeds/pug.html">Pug</a></li> 
+		<li class="dog_breeds"><a href="../dog_breeds/saint_bernard.html">Saint Bernard</a></li> 
+		<li class="dog_breeds"><a href="../dog_breeds/yorkshire.html">Yorkshire Terrier</a></li> 
+	</ol>
+	
+	<!-- linking javascript -->
+	<script src="./search_bar.js"></script>
+</body>
+<br></br>
+
+<footer style="text-align:center">&copy; Copyright 2023, Quynh Nguyen OSU 361-400</footer> 
+</html>

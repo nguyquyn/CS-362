@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Timer Microservice</title>
+    </head>
+    <body style="background-color:rgba(128, 178, 242, 50%);text-align:left;font-family:'Tajawal', sans-serif;">
+        <h1>Personality Quiz with 10 Minutes Timer</h1>
+        <div class="container">
+            <h2 id="counter">10:00</h2>
+        </div>
+        <script type="text/javascript">
+            var minute=9;
+            var second=60;
+            setInterval(function(){
+                if(minute==0 && second==1){
+                    document.getElementById("counter").innerHTML="00:00";
+                }else{
+                    second--;
+                    if(second == 0){
+                        minute--;
+                        second =60;
+                        if(minute ==0){
+                            minute = minute;
+                        }
+                    }
+                    document.getElementById("counter").innerHTML = minute + ":" + second;
+                }
+            },1000)
+        </script>
+        <form id="quiz-form">
+            <p>Question 1: How would you describe your personality? </p>
+            <label><input type="radio" name="q1" value="a">A. Strong, Dependable</label><br>
+            <label><input type="radio" name="q1" value="b">B. Playful, Stubborn</label><br>
+            <label><input type="radio" name="q1" value="c">C. Laid-back, Affectionate</label><br>
+        
+            <p>Question 2: What are the main reasons you want a dog?</p>
+            <label><input type="radio" name="q2" value="a">A. To guard my house and family</label><br>
+            <label><input type="radio" name="q2" value="b">B. Companionship at home</label><br>
+            <label><input type="radio" name="q2" value="c">C. A friend for the kids</label><br>
+        
+            <p>Question 3: What is your experience in owning a dog?</p>
+            <label><input type="radio" name="q3" value="a">A. I have had dogs in the recent past or currently have dogs</label><br>
+            <label><input type="radio" name="q3" value="b">B. I had a dog as a child</label><br>
+            <label><input type="radio" name="q3" value="c">C. This will be my first dog</label><br>
+            
+            <p>Question 4: How energetic do you want your dog to be?</p>
+            <label><input type="radio" name="q4" value="a">A. High Energy</label><br>
+            <label><input type="radio" name="q4" value="b">B. Moderate Energy</label><br>
+            <label><input type="radio" name="q4" value="c">C. Low Energy</label><br>
+        
+            <p>Question 5: How much coat shedding can you deal with?</p>
+            <label><input type="radio" name="q5" value="a">A. Lots of Shedding</label><br>
+            <label><input type="radio" name="q5" value="b">B. Medium Shedding</label><br>
+            <label><input type="radio" name="q5" value="c">C. Little to None Shedding</label><br></br>
+            <input type="submit" value="Submit">
+            <br></br>
+            <a href="../index.html">Return To Home Page</a>
+          </form>
+          <script>
+            // Initialize counters for A, B, and C selections
+            var countA = 0;
+            var countB = 0;
+            var countC = 0;
+        
+        // Listen for form submission
+        var quizForm = document.getElementById('quiz-form');
+        quizForm.addEventListener('submit', function(event) {
+          // Prevent default form submission behavior
+          event.preventDefault();
+        
+          // Loop through all radio inputs
+          var inputs = quizForm.getElementsByTagName('input');
+          for (var i = 0; i < inputs.length; i++) {
+            if (inputs[i].type === 'radio' && inputs[i].checked) {
+              // Increment appropriate counter based on selected value
+              if (inputs[i].value === 'a') {
+                countA++;
+              } else if (inputs[i].value === 'b') {
+                countB++;
+              } else if (inputs[i].value === 'c') {
+                countC++;
+              }
+            }
+          }
+        
+          // Determine majority selection
+          var maxCount = Math.max(countA, countB, countC);
+          var resultMessage;
+          if (maxCount === countA) {
+            resultMessage = window.open('results/resultsA.html');
+          } else if (maxCount === countB) {
+            resultMessage = window.open('results/resultsB.html');
+          } else if (maxCount === countC) {
+            resultMessage = window.open('results/resultsC.html');
+          }
+        
+          // Reset form and counters
+          quizForm.reset();
+          countA = 0;
+          countB = 0;
+          countC = 0;
+        });
+        
+          </script>
+    </body>
+    
+</html>

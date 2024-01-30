@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Personality Quiz</title>
+</head>
+<body>
+  <h1>Personality Quiz</h1>
+  <body style="background-color:rgba(128, 178, 242, 50%);text-align:left;font-family:'Tajawal', sans-serif;">
+  <form id="quiz-form">
+    <p>Question 1: How would you describe your personality? </p>
+    <label><input type="radio" name="q1" value="a">A. Strong, Dependable</label><br>
+    <label><input type="radio" name="q1" value="b">B. Playful, Stubborn</label><br>
+    <label><input type="radio" name="q1" value="c">C. Laid-back, Affectionate</label><br>
+
+    <p>Question 2: What are the main reasons you want a dog?</p>
+    <label><input type="radio" name="q2" value="a">A. To guard my house and family</label><br>
+    <label><input type="radio" name="q2" value="b">B. Companionship at home</label><br>
+    <label><input type="radio" name="q2" value="c">C. A friend for the kids</label><br>
+
+    <p>Question 3: What is your experience in owning a dog?</p>
+    <label><input type="radio" name="q3" value="a">A. I have had dogs in the recent past or currently have dogs</label><br>
+    <label><input type="radio" name="q3" value="b">B. I had a dog as a child</label><br>
+    <label><input type="radio" name="q3" value="c">C. This will be my first dog</label><br>
+    
+    <p>Question 4: How energetic do you want your dog to be?</p>
+    <label><input type="radio" name="q4" value="a">A. High Energy</label><br>
+    <label><input type="radio" name="q4" value="b">B. Moderate Energy</label><br>
+    <label><input type="radio" name="q4" value="c">C. Low Energy</label><br>
+
+    <p>Question 5: How much coat shedding can you deal with?</p>
+    <label><input type="radio" name="q5" value="a">A. Lots of Shedding</label><br>
+    <label><input type="radio" name="q5" value="b">B. Medium Shedding</label><br>
+    <label><input type="radio" name="q5" value="c">C. Little to None Shedding</label><br></br>
+    <input type="submit" value="Submit">
+    <br></br>
+    <a href="../index.html">Return To Home Page</a>
+  </form>
+
+<!-- Javascript for Personality Quiz Counter! -->
+  <script>
+    var countA = 0;
+    var countB = 0;
+    var countC = 0;
+
+    // Form submission
+    var quizForm = document.getElementById('quiz-form');
+    quizForm.addEventListener('submit', function(event) {
+      // Prevent default form submission behavior
+      event.preventDefault();
+
+    // Add to counter A, B, C based on what option the user elects
+    var inputs = quizForm.getElementsByTagName('input');
+    for (var index = 0; index < inputs.length; index++) {
+      if (inputs[index].type === 'radio' && inputs[index].checked) {
+        if (inputs[index].value === 'a') {
+          countA++;
+        } else if (inputs[index].value === 'b') {
+          countB++;
+        } else if (inputs[index].value === 'c') {
+          countC++;
+        }
+      }
+    }
+
+    // Determine majority selection then redirect to corresponding results page
+    var maxCount = Math.max(countA, countB, countC);
+    var resultMessage;
+    if (maxCount === countA) {
+      resultMessage = window.open('results/resultsA.html');
+    } else if (maxCount === countB) {
+      resultMessage = window.open('results/resultsB.html');
+    } else if (maxCount === countC) {
+      resultMessage = window.open('results/resultsC.html');
+    }
+
+    quizForm.reset();
+    countA = 0;
+    countB = 0;
+    countC = 0;
+});
+    </script>
+  </body>
+</html>
