@@ -3,7 +3,7 @@
 ```
 How to Run:
 1. Choose random port number and insert in index.js file
-1. Run npm start
+1. Run npm install then npm start
 2. Launch in localhost with chosen port number
 ```
 
