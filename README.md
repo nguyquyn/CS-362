@@ -2,9 +2,9 @@
 
 ```
 How to Run:
-1. Choose random port number and insert in index.js file
+1. Choose random port number from 1024 to 49151 and insert in index.js file
 1. Run npm install then npm start
-2. Launch in localhost with chosen port number
+2. Launch in browser at http://localhost:chosen port number/
 ```
 
 ## Description:
